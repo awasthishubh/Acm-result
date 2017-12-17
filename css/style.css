@@ -6,8 +6,8 @@ body{
 * {box-sizing:border-box}
 .section-1{
 	background: url(../img/map.png) no-repeat ;
-	background-size: cover;
-	height: 100vh;
+	background-size: contain;
+	min-height: 100vh;
 }
 
 nav{
@@ -174,7 +174,7 @@ button, input, optgroup, select, textarea
 	width: 64vw;
 	margin-right: auto !important;
 	margin-left: auto !important;
-	background-color: #1e88e5 !important;
+	background-color: #1e88e5;
 	border-radius: none !important;
 	box-shadow: none !important;
 	color: white;
@@ -182,7 +182,6 @@ button, input, optgroup, select, textarea
 	min-height: 100px;
 }
 @media only screen and (min-width: 701px) {
-    /*For Desktop */
    .btm-mob{
 		
 		text-align: center;
@@ -219,4 +218,8 @@ footer p a {
 }
 #tw_i:hover{
 	color: #0084b4 ;
+}
+
+@media only screen and (max-width: 601px) {
+
 }
