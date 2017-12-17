@@ -89,7 +89,7 @@
 					</div>
 				</div>
 				<div id="result_card" class="card res-card">
-					<p id="result_para"></p>
+					<h5 id="result_para"></h5>
 				</div>
 			</div>
 
@@ -119,6 +119,7 @@
 
 			$('#submitForm').on('submit', function(e) {
 				e.preventDefault();
+
 				var str = $('#regno').val();
 				var patt = /^([0-9]{2})([a-zA-Z]{3})([0-9]{4})$/i;
 				var regno_result = patt.test(str);
@@ -128,6 +129,7 @@
 					return false;
 				}
 				$('.loader-wrapper').css('display','block');
+				$("#result_card").hide();
 				$.ajax({
 					url: "http://acmrecruitment.herokuapp.com/submit/check?regno="+str,
 					success: function(result){
