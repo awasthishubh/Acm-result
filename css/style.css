@@ -34,11 +34,14 @@ nav{
     color: #1e87e5 !important;
     transition: all 0.2s ease-in;
     margin-top: 14px;
-    
+
 }
 .submit-btn:hover{
 	color: #fff !important;
 	background-color: #1e87e5;
+}
+.success-card{
+	background-color: green !important;
 }
 .mainlogo1{
 	width: 130px;

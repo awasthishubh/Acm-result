@@ -126,8 +126,9 @@
 
 			function show_success(name,department){
 				var text="Congratulations "+capitalize(name)+"! You have been selected in ACM under "+capitalize(department)+" domain. We look forward to working with you. Welcome to the ACM family!";
-				alert(text)
-				$("#result_card").show();
+				
+				$("#result_card").fadeIn();
+				$("#result_card").addClass("success-card");
 				$("#result_para").html(text);
 			}
 
