@@ -88,7 +88,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="result_card" class="card res-card">
+				<div id="result_card" class="card res-card hoverable">
 					<h5 id="result_para"></h5>
 				</div>
 			</div>
@@ -101,8 +101,8 @@
 				<p>
 					<a href="https://facebook.com/ACM.VITU" target="_blank" id="fb_i"><i class="fa fa-facebook fa-2x"></i></a> &nbsp;
 					<a href="https://twitter.com/ACM_VIT" target="_blank" id="tw_i"><i class="fa fa-twitter fa-2x"></i></a><br>
-					<a href="mailto:vituacm@gmail.com" target="_top">vituacm@gmail.com</a><br>
-					<span>+91 8279887513</span>
+					<a href="mailto:outreachvit@gmail.com" target="_top">outreachvit@gmail.com</a><br>
+					<!-- <span>+91 8279887513</span> -->
 				</p>
 			</footer>
 		</div>
@@ -131,13 +131,13 @@
 				$('.loader-wrapper').css('display','block');
 				$("#result_card").hide();
 				$.ajax({
-					url: "http://acmrecruitment.herokuapp.com/submit/check?regno="+str,
-					success: function(result){
+					url: "https://acmresult.herokuapp.com/?regno="+str
+				}).done(function(result){
 						$('.loader-wrapper').css('display','none');
 						var selected=result.selected;
 						console.log(selected)
-						if(selected==true){
-							show_success(result.name,result.domain);
+						if(selected==true || selected.toUpperCase()=="TRUE" || selected.toUpperCase()=="Y"){
+							show_success(result.name,result.department);
 
 						}
 						else if(selected==false){
@@ -146,9 +146,13 @@
 						else{
 							show_not_registered();
 						}
-
+				}).catch((err)=>{
+					$('.loader-wrapper').css('display','none');
+					if(err.status===404){
+						show_not_registered();
 					}
-				});
+					console.log(err.status)
+				})
 
 			});
 
@@ -158,7 +162,7 @@
 				
 				$("#result_para").html(text);
 				// $("#result_card").addClass("success-card");
-				$('#result_card').css({'background-color':'#558b2f'});
+				$('#result_card').css({'background-color':'#00e676'});
 				$("#result_card").fadeIn();
 			}
 
@@ -172,7 +176,7 @@
 			}
 
 			function show_not_registered(){
-				var text="We are sorry to inform you that you did not appeared for the second round of recruitments. We wish you best of luck and hope you will continue to be a part of ACM by participating in our events and workshops.";
+				var text="We are sorry to inform that you did not clear our recruitment process. We wish you best of luck and hope you will continue to be a part of ACM by participating in our events and workshops.";
 
 				$("#result_para").html(text);
 				$('#result_card').css({'background-color':'#d32f2f'});

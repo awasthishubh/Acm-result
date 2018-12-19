@@ -176,10 +176,11 @@ button, input, optgroup, select, textarea
 	margin-left: auto !important;
 	background-color: #1e88e5;
 	border-radius: none !important;
-	box-shadow: none !important;
+	/*box-shadow: none !important;*/
 	color: white;
 	padding: 15px;
 	min-height: 100px;
+	cursor: pointer;
 }
 @media only screen and (min-width: 701px) {
    .btm-mob{
